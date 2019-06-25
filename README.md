@@ -9,7 +9,7 @@ $
  
  ## I needed to implement a test which contains following steps:
  
- ###Test case scenario:
+ ### Test case scenario:
 
 >(firstStep)Open url: wrike.com;
 >(secondStep)Click "Get started for free" button near "Login" button;
@@ -24,7 +24,7 @@ $
 
 
 
-####Stack of technologies for implementation:
+#### Stack of technologies for implementation:
 
 >Platform: java8
 >Build and run: maven
