@@ -28,7 +28,7 @@ $ mvn allure:serve
 -(Click on "Resend email" + check it with assertion;
 
 
--Check that section "Follow us" at the site footer contains the "Twitter" button that leads to the correct url and has the -correct icon;
+-Check that section "Follow us" at the site footer contains the "Twitter" button that leads to the correct url and has the correct icon;
 
 
 -Create results report using allure plugin (by maven).
@@ -40,10 +40,22 @@ $ mvn allure:serve
 
 #### Stack of technologies for implementation:
 
--Platform: java8 /n
+>Platform: java8 
+
+
 >Build and run: maven
+
+
 >Test framework: junit4
+
+
 >UI test: selenium 3 
+
+
 >Pattern: pageObject (test -> steps -> pages)
+
+
 >Reporting: allure plugin
+
+
 >Selector: xpath and css
