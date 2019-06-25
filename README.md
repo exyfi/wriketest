@@ -11,30 +11,30 @@ $ mvn allure:serve
  
  ### Test case scenario:
 
--(firstStep)Open url: wrike.com;
+* (firstStep)Open url: wrike.com;
 
 
--(secondStep)Click "Get started for free" button near "Login" button;
+* (secondStep)Click "Get started for free" button near "Login" button;
 
 
--(thirdStep)Fill in the email field with random generated value of email with mask “<random_text>+wpt@wriketask.qaa” (e.g. “abcdef+wpt@wriketask.qaa”);
+* (thirdStep)Fill in the email field with random generated value of email with mask “<random_text>+wpt@wriketask.qaa” (e.g. “abcdef+wpt@wriketask.qaa”);
 
 
--(fourthStep)Click on "Create my Wrike account" button + check with assertion that you are moved to the next page;
+* (fourthStep)Click on "Create my Wrike account" button + check with assertion that you are moved to the next page;
 
 
--(fifthStep)Fill in the Q&A section at the left part of page (like random generated answers) + check with assertion that your answers are submitted;
+* (fifthStep)Fill in the Q&A section at the left part of page (like random generated answers) + check with assertion that your answers are submitted;
 
--'DOESN'T WORK'(sixthStep) Click on "Resend email" + check it with assertion;
-
-
--(eighthStep-ninthStep) Check that section "Follow us" at the site footer contains the "Twitter" button that leads to the correct url and has the correct icon;
+* \*DOESN'T WORK\*(sixthStep) Click on "Resend email" + check it with assertion;
 
 
--Create results report using allure plugin (by maven).
+* (eighthStep-ninthStep) Check that section "Follow us" at the site footer contains the "Twitter" button that leads to the correct url and has the correct icon;
 
 
--(you may close all needless tooltips on your way)
+* Create results report using allure plugin (by maven).
+
+
+* (you may close all needless tooltips on your way)
 
 
 
