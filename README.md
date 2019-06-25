@@ -25,7 +25,7 @@ $ mvn allure:serve
 
 * (fifthStep)Fill in the Q&A section at the left part of page (like random generated answers) + check with assertion that your answers are submitted;
 
-* \*\*DOESN'T WORK\*\* (sixthStep) Click on "Resend email" + check it with assertion;
+* **DOESN'T WORK** (sixthStep) Click on "Resend email" + check it with assertion;
 
 
 * (eighthStep-ninthStep) Check that section "Follow us" at the site footer contains the "Twitter" button that leads to the correct url and has the correct icon;
