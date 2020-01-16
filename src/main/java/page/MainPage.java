@@ -1,6 +1,5 @@
 package page;
 
-
 import generator.EmailGenerator;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -13,12 +12,12 @@ import static junit.framework.TestCase.assertTrue;
 @Epic("Steps 1-4")
 @Feature("Testing MainPage Interface")
 public class MainPage {
-    private WebDriver driver;
+    
+    private final WebDriver driver;
 
-
-    private final By getStartedFreeButton = By.xpath("//div[@class='wg-header__sticky-mainmenu']//button");
-    private final By completeRegistration = By.xpath("//button[@class='wg-btn wg-btn--blue modal-form-trial__submit']");
-    private final By emailInput = By.xpath("//input[@class='wg-input modal-form-trial__input']");
+    private static final By getStartedFreeButton = By.xpath("//div[@class='wg-header__sticky-mainmenu']//button");
+    private static final By completeRegistration = By.xpath("//button[@class='wg-btn wg-btn--blue modal-form-trial__submit']");
+    private static final By emailInput = By.xpath("//input[@class='wg-input modal-form-trial__input']");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -49,9 +48,5 @@ public class MainPage {
         WebElement element = driver.findElement(completeRegistration);
         assertTrue(element.isDisplayed());
         driver.findElement(completeRegistration).click();
-
-
     }
-
-
 }
