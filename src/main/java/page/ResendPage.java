@@ -19,40 +19,36 @@ import static junit.framework.TestCase.assertTrue;
 @Feature("Testing ResendPage Interface")
 public class ResendPage {
 
-
     private final WebDriver driver;
 
-    private final By submitData = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > button");
-    ///I'm sorry for using cssSelector instead of xpath
-    private final By firstBarLocator = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > div:nth-child(6)");
-    private final By secondBarLocator = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > div:nth-child(8)");
-    private final By thirdBarLocator = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > div:nth-child(10)");
-    private final By socialList = By.xpath("//li[@class='wg-footer__social-item']//a");
-    private final By socialIcons = By.cssSelector("[class='wg-footer__social-icon'] > use");
-    private final static String EXPECTED_URL = "Thank you for choosing Wrike!";
-
+    //avoid path like these
+    private static final By submitData = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > button");
+    private static final By firstBarLocator = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > div:nth-child(6)");
+    private static final By secondBarLocator = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > div:nth-child(8)");
+    private static final By thirdBarLocator = By.cssSelector("div.wg-cell.wg-cell--md-6.wg-cell--lg-7 > div > form > div:nth-child(10)");
+    private static final By socialList = By.xpath("//li[@class='wg-footer__social-item']//a");
+    private static final By socialIcons = By.cssSelector("[class='wg-footer__social-icon'] > use");
+    private static final String EXPECTED_URL = "Thank you for choosing Wrike!";
 
     public ResendPage(WebDriver driver) {
         this.driver = driver;
-
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 
     @Step("Check with assertion that you are moved to the next page")
     public void fifthStep() {
-        pause();
         assertEquals(EXPECTED_URL, driver.getTitle());
     }
-
 
     @Step("Fill in the Q&A section at the left part of page (like random generated answers) + check with assertion that your answers are submitted")
     @Flaky
     public void sixthStep() {
-        pause();
-
         RandomFill autofill = new RandomFill();
+        
         WebElement firstBar = driver.findElement(firstBarLocator);
         WebElement secondBar = driver.findElement(secondBarLocator);
         WebElement thirdBar = driver.findElement(thirdBarLocator);
+        
         autofill.fill(firstBar);
         autofill.fill(secondBar);
         autofill.fill(thirdBar);
@@ -65,18 +61,8 @@ public class ResendPage {
         WebElement submitbutton = driver.findElement(submitData);
         assertTrue(submitbutton.isEnabled());
         driver.findElement(submitData).click();
-
     }
-
-
-    private void pause() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
+    
     @Step("Check that 'Follow us' contains the Media button")
     public void eighthStep() {
         List<WebElement> socialButtonsList = driver.findElements(socialList);
@@ -96,8 +82,7 @@ public class ResendPage {
 
     @Step("Check that Twitter button has the correct logo")
     @Flaky
-    public void ninthStep() {
-        pause();
+    public void ninthStep() {     
         List<WebElement> socialIconsList = driver.findElements(socialIcons);
         int index = -1;
 
@@ -107,10 +92,6 @@ public class ResendPage {
                 break;
             }
         }
-
         assertTrue(index >= 0);
-
     }
-
-
 }
